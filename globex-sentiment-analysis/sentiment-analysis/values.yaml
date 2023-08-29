@@ -1,3 +1,6 @@
-kafka-topics:
+kafka-secret:
+  secret: kafka-secret
+
+knative-kafkasink:
   kafka:
-    namespace:
+    secret: kafka-secret

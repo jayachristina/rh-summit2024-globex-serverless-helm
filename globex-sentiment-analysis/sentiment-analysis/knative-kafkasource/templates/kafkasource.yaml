@@ -23,15 +23,15 @@ spec:
       enable: true
       user:
         secretKeyRef:
-          name: {{ include "knative-kafkasource.name" . }}-secret
+          name: {{ .Values.kafka.secret }}
           key: user
       password:
         secretKeyRef:
-          name: {{ include "knative-kafkasource.name" . }}-secret
+          name: {{ .Values.kafka.secret }}
           key: password
       type:
         secretKeyRef:
-          name: {{ include "knative-kafkasource.name" . }}-secret
+          name: {{ .Values.kafka.secret }}
           key: sasl.mechanism
   sink:
     ref:

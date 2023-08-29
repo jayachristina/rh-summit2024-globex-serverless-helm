@@ -16,5 +16,5 @@ spec:
   auth:
      secret:
        ref:
-         name: {{ include "knative-kafkasink.name" $ }}-secret
+         name: {{ $.Values.kafka.secret }}
 {{- end }}

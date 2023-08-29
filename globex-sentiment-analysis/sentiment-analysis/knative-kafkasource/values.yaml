@@ -1,16 +1,8 @@
 nameOverride: "kafka-source"
 
-secret:
-  argocd:
-    enabled: true
-    syncwave: "-1"
-
 kafka:
-  bootstrapServer: 
-  clientId: ""
-  clientSecret: ""
-  securityProtocol: ""
-  saslMechanism: ""
+  bootstrapServer:
+  secret: kafka-secret
 
 topics:
   - globex.reviews

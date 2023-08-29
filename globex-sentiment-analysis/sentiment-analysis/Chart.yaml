@@ -5,12 +5,15 @@ type: application
 version: 0.1.0
 
 dependencies:
-  - name: knative-kafka
-    version: 0.1.0
-    repository: file://knative-kafka
+  # - name: knative-kafka
+  #   version: 0.1.0
+  #   repository: file://knative-kafka
   - name: kafka-topics
     version: 0.1.0
     repository: file://kafka-topics
+  - name: kafka-secret
+    version: 0.1.0
+    repository: file://kafka-secret
   - name: knative-kafkasink
     version: 0.1.0
     repository: file://knative-kafkasink
