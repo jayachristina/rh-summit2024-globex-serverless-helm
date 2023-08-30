@@ -41,6 +41,9 @@ dependencies:
   - name: knative-triggers
     version: 0.1.0
     repository: file://knative-triggers
+  - name: knative-sinkbinding
+    version: 0.1.0
+    repository: file://knative-sinkbinding 
   - name: globex-web-reviews
     version: 0.1.0
     repository: file://globex-web-reviews

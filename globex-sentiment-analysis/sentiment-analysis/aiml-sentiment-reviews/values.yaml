@@ -18,6 +18,3 @@ resources:
 cloudEvents:
   source: reviews-sentiment
   type: reviews-sentiment-event
-
-kafkaSink:
-  sentiment: ""
