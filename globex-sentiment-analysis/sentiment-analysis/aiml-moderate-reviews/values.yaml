@@ -13,7 +13,7 @@ resources:
   limits:
     memory: 6000Mi
   requests:
-    memory: 4000Mi
+    memory: 1000Mi
 
 gunicorn:
   threads: "4"
