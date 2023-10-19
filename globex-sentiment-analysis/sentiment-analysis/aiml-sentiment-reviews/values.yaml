@@ -15,6 +15,10 @@ resources:
   requests:
     memory: 4000Mi
 
+gunicorn:
+  threads: "4"
+  timeout: "180"
+
 cloudEvents:
   source: reviews-sentiment
   type: reviews-sentiment-event
