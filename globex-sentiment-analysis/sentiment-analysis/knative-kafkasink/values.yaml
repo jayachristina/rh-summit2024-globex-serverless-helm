@@ -9,10 +9,6 @@ kafkasink:
    topic: reviews.moderated
    partitions: 1
    contentMode: binary
- - name: denied-reviews-sink
-   topic: reviews.denied
-   partitions: 1
-   contentMode: binary
  - name: reviews-sentiment-sink
    topic: reviews.sentiment
    partitions: 1

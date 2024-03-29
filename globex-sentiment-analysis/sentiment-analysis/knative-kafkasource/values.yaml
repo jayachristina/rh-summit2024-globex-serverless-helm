@@ -7,7 +7,6 @@ kafka:
 topics:
   - globex.reviews
   - reviews.moderated
-  - reviews.denied
   - reviews.sentiment
 
 broker: globex-broker
