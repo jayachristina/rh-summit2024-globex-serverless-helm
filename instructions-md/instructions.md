@@ -35,7 +35,7 @@ spec:
 ```
 
 ```sh
-oc apply -f persist-reviews.yaml
+oc apply -f instructions-md/persist-reviews.yaml
 ```
 
 
@@ -63,7 +63,7 @@ spec:
 ```
 
 ```sh
-oc apply -f kafka-sink.yaml
+oc apply -f instructions-md/kafka-sink.yaml
 ```
 
 
@@ -92,7 +92,7 @@ spec:
 ````
 
 ```sh
-oc apply -f sink-binding.yaml
+oc apply -f instructions-md/sink-binding.yaml
 ```
 
 
@@ -107,7 +107,7 @@ metadata:
 ```
 
 ```sh
-oc apply -f knative-broker.yaml
+oc apply -f instructions-md/knative-broker.yaml
 ```
 
 
@@ -155,7 +155,7 @@ spec:
 ```
 
 ```sh
-oc apply -f knative-source.yaml
+oc apply -f instructions-md/knative-source.yaml
 ```
 
 
@@ -224,5 +224,5 @@ spec:
 ```
 
 ```sh
-oc apply -f  knative-triggers.yaml
+oc apply -f  instructions-md/knative-triggers.yaml
 ```
