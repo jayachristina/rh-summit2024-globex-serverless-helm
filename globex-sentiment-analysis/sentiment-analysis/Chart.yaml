@@ -38,6 +38,9 @@ dependencies:
   - name: aiml-sentiment-reviews
     version: 0.1.0
     repository: file://aiml-sentiment-reviews
+  - name: reviews-simulator
+    version: 0.1.0
+    repository: file://reviews-simulator
   - name: knative-triggers
     version: 0.1.0
     repository: file://knative-triggers
