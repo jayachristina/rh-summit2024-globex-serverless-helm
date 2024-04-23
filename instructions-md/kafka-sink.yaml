@@ -1,0 +1,15 @@
+apiVersion: eventing.knative.dev/v1alpha1
+kind: KafkaSink
+metadata:
+  name: reviews-sink
+  namespace: globex-serverless-user1
+spec:
+  bootstrapServers:
+    - kafka-kafka-bootstrap.globex-mw-user1.svc.cluster.local:9092
+  topic: globex.reviews
+  numPartitions: 1
+  contentMode: binary
+  auth:
+     secret:
+       ref:
+         name: kafka-secret

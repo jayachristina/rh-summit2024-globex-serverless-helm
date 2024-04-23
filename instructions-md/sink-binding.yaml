@@ -1,0 +1,17 @@
+apiVersion: sources.knative.dev/v1
+kind: SinkBinding
+metadata:
+  name: product-reviews-to-reviews-sink
+  namespace: globex-serverless-user1
+spec:
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1alpha1
+      kind: KafkaSink
+      name: reviews-sink
+      namespace: globex-serverless-user1
+  subject:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: product-reviews
+    namespace: globex-serverless-user1

@@ -1,0 +1,21 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: persist-reviews
+  namespace: globex-serverless-user1
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+    spec:
+      containers:
+        - image: quay.io/globex-sentiment-analysis/persist-reviews:latest
+          volumeMounts:
+            - mountPath: /deployments/config
+              name: config
+              readOnly: true
+      volumes:
+        - name: config
+          secret:
+            secretName: persist-reviews

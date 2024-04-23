@@ -1,0 +1,54 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: persist-reviews-trigger
+  namespace: globex-serverless-user1
+spec:
+  broker: globex-broker
+  filter:
+    attributes:
+      source: review-moderated
+      type: review-moderated-event
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: persist-reviews
+    uri: /review/submit
+
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: moderate-reviews-trigger
+  namespace: globex-serverless-user1
+spec:
+  broker: globex-broker
+  filter:
+    attributes:
+      source: submit-review
+      type: submit-review-event
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: aiml-moderate-reviews
+    uri: /analyze
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sentiment-reviews-trigger
+  namespace: globex-serverless-user1
+spec:
+  broker: globex-broker
+  filter:
+    attributes:
+      source: submit-review
+      type: submit-review-event
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: aiml-sentiment-reviews
+    uri: /analyze

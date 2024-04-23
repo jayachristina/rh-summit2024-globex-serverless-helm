@@ -1,0 +1,38 @@
+
+apiVersion: sources.knative.dev/v1beta1
+kind: KafkaSource
+metadata:
+  name: kafka-source
+  namespace: globex-serverless-user1
+spec:
+  bootstrapServers:
+    - 'kafka-kafka-bootstrap.globex-mw-user1.svc.cluster.local:9092'
+  topics:
+    - globex.reviews
+    - reviews.moderated
+    - reviews.sentiment
+  net:
+    sasl:
+      enable: true
+      password:
+        secretKeyRef:
+          key: password
+          name: kafka-secret
+      type:
+        secretKeyRef:
+          key: sasl.mechanism
+          name: kafka-secret
+      user:
+        secretKeyRef:
+          key: user
+          name: kafka-secret
+    tls:
+      caCert: {}
+      cert: {}
+      key: {}
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: globex-broker
+      namespace: globex-serverless-user1
