@@ -1,8 +1,12 @@
 nameOverride: "kafka-sink"
 
 kafkasink:
- - name: reviews-sink
-   topic: globex.reviews
+ - name: moderated-reviews-sink
+   topic: reviews.moderated
+   partitions: 1
+   contentMode: binary
+ - name: reviews-sentiment-sink
+   topic: reviews.sentiment
    partitions: 1
    contentMode: binary
   
