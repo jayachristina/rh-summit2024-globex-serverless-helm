@@ -1,14 +1,4 @@
 sinkbinding:
-  - name: product-reviews-to-reviews-sink
-    sink:
-      ref:
-        apiVersion: eventing.knative.dev/v1alpha1
-        kind: KafkaSink
-        name: reviews-sink
-    subject:
-      apiVersion: apps/v1
-      kind: Deployment
-      name: product-reviews
   - name: aiml-sentiment-reviews-to-reviews-sentiment-sink
     sink:
       ref:

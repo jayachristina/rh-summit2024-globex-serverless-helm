@@ -5,14 +5,6 @@ kafkasink:
    topic: globex.reviews
    partitions: 1
    contentMode: binary
- - name: moderated-reviews-sink
-   topic: reviews.moderated
-   partitions: 1
-   contentMode: binary
- - name: reviews-sentiment-sink
-   topic: reviews.sentiment
-   partitions: 1
-   contentMode: binary
   
 kafka:
   bootstrapServer:
