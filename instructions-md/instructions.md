@@ -95,8 +95,8 @@ spec:
 oc apply -f instructions-md/sink-binding.yaml
 ```
 
-
 ## 4 Create Knative Broker
+Brokers provide a discoverable endpoint for incoming event, and use Triggers for event delivery. 
 
 ```yaml
 apiVersion: eventing.knative.dev/v1
@@ -113,6 +113,7 @@ oc apply -f instructions-md/knative-broker.yaml
 
 
 ## 5 Create Knative source
+* KafkaSource reads messages in existing Apache Kafka topics, and sends those messages (CloudEvents format) to a Knative Kafka Broker.
 
 ```yaml
 apiVersion: sources.knative.dev/v1beta1
