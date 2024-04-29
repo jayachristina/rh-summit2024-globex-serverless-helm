@@ -41,7 +41,6 @@ dependencies:
   - name: reviews-simulator
     version: 0.1.0
     repository: file://reviews-simulator
-  - name: knative-triggers
   - name: reviews-dashboard
     version: 0.1.0
     repository: file://reviews-dashboard
