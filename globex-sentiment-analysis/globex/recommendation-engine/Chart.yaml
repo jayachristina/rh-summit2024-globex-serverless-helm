@@ -1,5 +1,0 @@
-apiVersion: v2
-name: recommendation-engine
-description: A Helm chart for the deployment of the Globex Recommendation Engine application
-type: application
-version: 0.1.0

@@ -1,5 +1,0 @@
-apiVersion: v2
-name: activity-tracking
-description: A Helm chart for the deployment of the Globex Activity Tracking application
-type: application
-version: 0.1.0

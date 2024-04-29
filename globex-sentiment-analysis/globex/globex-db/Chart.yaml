@@ -1,6 +1,0 @@
-apiVersion: v2
-name: globex-db
-description: A Helm chart for the deployment of the Globex Store database
-type: application
-version: 0.1.0
-

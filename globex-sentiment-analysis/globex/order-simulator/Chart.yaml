@@ -1,5 +1,0 @@
-apiVersion: v2
-name: order-simulator
-description: A Helm chart for the deployment of the Globex Order Simulator
-type: application
-version: 0.1.0
