@@ -9,10 +9,6 @@ spec:
       annotations:
         autoscaling.knative.dev/min-scale: "1"
     spec:
-      securityContext:
-        runAsNonRoot: true
-        seccompProfile:
-          type: RuntimeDefault
       containers:
         - image: quay.io/globex-sentiment-analysis/persist-reviews:latest
           volumeMounts:

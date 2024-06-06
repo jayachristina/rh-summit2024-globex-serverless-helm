@@ -3,10 +3,9 @@
 1. Create Knative Service persist-reviews
 2. Create Knative KafkaSink
 3. Create Sink Binding
-4. Create Event Mesh <br>
-4.1 Create Knative Broker <br>
-4.2 Create Knative source <br>
-4.3 Create Knative Triggers <br>
+4. Create Knative Broker
+5. Create Knative source
+6. Create Knative Triggers
 
 ## 1. Create Knative Service `persist-reviews`: 
 
@@ -38,18 +37,13 @@ spec:
 ```
 
 ```sh
-oc apply -f instructions-md/persist-reviews.yaml
+oc apply -f instructions-md/persist-reviews-cna.yaml
 ```
 
 
 ## 2. Create Knative KafkaSink
 
 In this section we will connect the Knative Services (refer to previous section) to Kafka using *Knative Sink* and *SinkBinding*. 
-
-KafkaSink persists the incoming message (CloudEvent) to a configurable Apache Kafka Topic.
-
-![](imagesink.png)
-
 
 ```yaml
 apiVersion: eventing.knative.dev/v1alpha1
@@ -77,10 +71,6 @@ oc apply -f instructions-md/kafka-sink.yaml
 
 ## 3. Create a *Sink Binding*
 
-SinkBinding supports decoupling the services producing the events from the Sink.
-
-![](imagesinkbinding.png)
-
 * Use the *Import YAML* form to create a *Sink Binding* from the `product-reviews` Quarkus Service to the KafkaSink `reviews-sink` that you created in the previous step.
 
 ```yaml
@@ -107,17 +97,8 @@ spec:
 oc apply -f instructions-md/sink-binding.yaml
 ```
 
-## 4 Build the Event Mesh 
-
-![](broker-source-filter.png)
-
-KafkaSource reads messages in existing Apache Kafka topics, and sends them to a Knative Broker for Kafka.
-
-Brokers use Triggers for event delivery.
-
-A Trigger subscribes to events from a specific broker, filters them based on CloudEvents headers, and delivers them to a Knative service’s HTTP endpoint.
-
-## 4.1 Create Knative Broker
+## 4 Create Knative Broker
+Brokers provide a discoverable endpoint for incoming event, and use Triggers for event delivery. 
 
 ```yaml
 apiVersion: eventing.knative.dev/v1
@@ -133,7 +114,7 @@ oc apply -f instructions-md/knative-broker.yaml
 
 
 
-## 4.2 Create Knative source
+## 5 Create Knative source
 * KafkaSource reads messages in existing Apache Kafka topics, and sends those messages (CloudEvents format) to a Knative Kafka Broker.
 
 ```yaml
@@ -173,7 +154,7 @@ spec:
       apiVersion: eventing.knative.dev/v1
       kind: Broker
       name: globex-broker
-      namespace: globex-serverless-user1      
+      namespace: globex-serverless-user1
 ```
 
 ```sh
@@ -182,7 +163,7 @@ oc apply -f instructions-md/knative-source.yaml
 
 
 
-## 4.3 Create Knative Triggers
+## 6. Create Knative Triggers
 
 You will now create triggers which will invoke the HTTP endpoint of Knative services depending on the CloudEvents headers. +
 Each CloudEvents created will be tagged with specific values in the headers `ce-type` and `ce-source` which is then used by the Trigger to route them to the correct service HTTP endpoint
